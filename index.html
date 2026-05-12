@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lilyk Foods Spice and Event - Authentic Nigerian Spices & Memorable Event Catering</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #14251a;
+            --color-accent: #468521;
+            --color-bg: #F2F8EE;
+            --color-text: #1A3020;
+            --color-surface: #2d492d;
+            --color-secondary-accent: #c55e26;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(242, 248, 238, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1.25rem 5%;
+            box-shadow: 0 2px 8px rgba(20, 37, 26, 0.08);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-text);
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 70px;
+            right: -100%;
+            width: 300px;
+            height: calc(100vh - 70px);
+            background: var(--color-bg);
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 999;
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu ul li {
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-menu ul a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .mobile-menu ul a:hover {
+            color: var(--color-accent);
+        }
+
+        section {
+            padding: 80px 5%;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        #hero {
+            animation-delay: 0s;
+        }
+
+        #about {
+            animation-delay: 0.1s;
+        }
+
+        #services {
+            animation-delay: 0.2s;
+        }
+
+        #contact {
+            animation-delay: 0.3s;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            padding: 2rem;
+            color: #ffffff;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .hero .tagline {
+            font-size: 1.75rem;
+            font-family: var(--font-display);
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            color: #ffffff;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--color-accent);
+            color: #ffffff;
+            padding: 1rem 2.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(70, 133, 33, 0.3);
+        }
+
+        .cta-btn:hover {
+            background: var(--color-secondary-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(197, 94, 38, 0.4);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(20, 37, 26, 0.12);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-content h2 {
+            font-size: 2.75rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-text);
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .services-header h2 {
+            font-size: 2.75rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 16px rgba(20, 37, 26, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--color-accent);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(20, 37, 26, 0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.75rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--color-text);
+        }
+
+        .contact-section {
+            background: var(--color-surface);
+            color: #ffffff;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-header h2 {
+            font-size: 2.75rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-header p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ffffff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .contact-card a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--color-secondary-accent);
+        }
+
+        .contact-card p {
+            color: #ffffff;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25D366;
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background: #20BA5A;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: #ffffff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        footer {
+            background: var(--color-primary);
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem 5%;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            section {
+                padding: 48px 5%;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.25rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-split {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-content h2,
+            .services-header h2,
+            .contact-header h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .about-content h2,
+            .services-header h2,
+            .contact-header h2 {
+                font-size: 2.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#hero" class="logo">Lilyk Foods</a>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <section id="hero" class="hero">
+        <div class="hero-bg">
+            <img src="https://images.pexels.com/photos/6347095/pexels-photo-6347095.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Lilyk Foods Hero">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Lilyk Foods Spice and Event</h1>
+            <p class="tagline">Authentic Nigerian Spices & Memorable Event Catering</p>
+            <p>Welcome to Lilyk Foods Spice and Event - your trusted partner for premium Nigerian spices and exceptional event catering services. From traditional spice blends that bring authentic flavour to your kitchen, to full-service event catering that delights your guests, we deliver quality and taste you can count on. Serving Abuja and beyond with pride.</p>
+            <a href="#contact" class="cta-btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="about-split">
+                <div class="about-image">
+                    <img src="https://images.pexels.com/photos/12546010/pexels-photo-12546010.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="About Lilyk Foods">
+                </div>
+                <div class="about-content">
+                    <h2>About Us</h2>
+                    <p>Lilyk Foods Spice and Event is a proudly Nigerian food manufacturing company based in Kubuwa, Abuja. We specialize in crafting premium spice blends that capture the rich, authentic flavours of Nigerian cuisine, alongside providing professional event catering services that turn your celebrations into unforgettable experiences. Our commitment to quality ingredients, traditional recipes, and exceptional customer service has made us a preferred choice for families and event planners across the Federal Capital Territory. Whether you're stocking your kitchen with our signature spice blends or planning your next big celebration, Lilyk Foods brings passion, expertise, and authentic Nigerian taste to every product and event we serve.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="services-header">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Premium Spice Manufacturing</h3>
+                    <p>Our signature spice blends are carefully crafted using the finest local ingredients. From pepper soup spice to suya seasoning, our products bring authentic Nigerian flavour to every meal. Available in various sizes for home cooks and commercial kitchens.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Event Catering Services</h3>
+                    <p>Make your celebration memorable with our professional catering. We handle weddings, birthdays, corporate events, and traditional ceremonies with delicious Nigerian cuisine and impeccable service. Custom menus available to suit your taste and budget.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Bulk & Wholesale Supply</h3>
+                    <p>We supply restaurants, hotels, and retailers with consistent quality spice products. Competitive pricing and reliable delivery across Abuja and surrounding areas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-header">
+                <h2>Contact Us</h2>
+                <p>Ready to spice up your kitchen or plan your next event? Get in touch with Lilyk Foods Spice and Event today. We're here to serve you with quality products and exceptional catering services.</p>
+                <p>Visit our facility at Junior Navy Quarter Kubuwa Phase 4, or reach out via phone and WhatsApp for inquiries, orders, and event bookings. We look forward to bringing authentic Nigerian flavour to your table.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Phone</h3>
+                    <a href="tel:+2347034862295">+234 703 486 2295</a>
+                </div>
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <a href="mailto:info@lilykfoods.com">info@lilykfoods.com</a>
+                </div>
+                <div class="contact-card">
+                    <h3>Address</h3>
+                    <p>Junior Navy Quarter Kubuwa Phase 4, Bwari Area Council, Abuja, Nigeria</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://wa.me/2347034862295" class="whatsapp-btn">Chat on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Lilyk Foods Spice and Event. All rights reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/2347034862295" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
