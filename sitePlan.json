@@ -1,0 +1,42 @@
+{
+  "businessName": "Lilyk Foods Spice and Event",
+  "industry": "Food Manufacturing & Events",
+  "tone": "warm and inviting",
+  "tagline": "Authentic Nigerian Spices & Memorable Event Catering",
+  "sections": [
+    {
+      "id": "hero",
+      "name": "Hero",
+      "copy": "Welcome to Lilyk Foods Spice and Event - your trusted partner for premium Nigerian spices and exceptional event catering services. From traditional spice blends that bring authentic flavour to your kitchen, to full-service event catering that delights your guests, we deliver quality and taste you can count on. Serving Abuja and beyond with pride.",
+      "imagePrompt": "A vibrant overhead shot of an elegant Nigerian party spread with jollof rice, grilled chicken, colorful Nigerian spices in traditional wooden bowls, fresh peppers, and beautifully arranged platters on a dark wooden table with warm ambient lighting, photorealistic, professional food photography",
+      "layout": "centered"
+    },
+    {
+      "id": "about",
+      "name": "About Us",
+      "copy": "Lilyk Foods Spice and Event is a proudly Nigerian food manufacturing company based in Kubuwa, Abuja. We specialize in crafting premium spice blends that capture the rich, authentic flavours of Nigerian cuisine, alongside providing professional event catering services that turn your celebrations into unforgettable experiences. Our commitment to quality ingredients, traditional recipes, and exceptional customer service has made us a preferred choice for families and event planners across the Federal Capital Territory. Whether you're stocking your kitchen with our signature spice blends or planning your next big celebration, Lilyk Foods brings passion, expertise, and authentic Nigerian taste to every product and event we serve.",
+      "imagePrompt": "A warm, inviting shot of a Nigerian woman in professional chef attire smiling while grinding traditional spices with a mortar and pestle in a clean, modern kitchen, with fresh ingredients and spice jars visible in the background, natural lighting, photorealistic",
+      "layout": "split"
+    },
+    {
+      "id": "services",
+      "name": "Our Services",
+      "copy": "**Premium Spice Manufacturing**\nOur signature spice blends are carefully crafted using the finest local ingredients. From pepper soup spice to suya seasoning, our products bring authentic Nigerian flavour to every meal. Available in various sizes for home cooks and commercial kitchens.\n\n**Event Catering Services**\nMake your celebration memorable with our professional catering. We handle weddings, birthdays, corporate events, and traditional ceremonies with delicious Nigerian cuisine and impeccable service. Custom menus available to suit your taste and budget.\n\n**Bulk & Wholesale Supply**\nWe supply restaurants, hotels, and retailers with consistent quality spice products. Competitive pricing and reliable delivery across Abuja and surrounding areas.",
+      "imagePrompt": "A triptych-style composition showing three scenes: traditional Nigerian spices in glass jars with labels, a beautifully decorated buffet table at an elegant Nigerian wedding reception, and fresh ingredients being prepared by chefs in a professional kitchen, bright and colorful, photorealistic",
+      "layout": "cards"
+    },
+    {
+      "id": "contact",
+      "name": "Contact Us",
+      "copy": "Ready to spice up your kitchen or plan your next event? Get in touch with Lilyk Foods Spice and Event today. We're here to serve you with quality products and exceptional catering services.\n\nVisit our facility at Junior Navy Quarter Kubuwa Phase 4, or reach out via phone and WhatsApp for inquiries, orders, and event bookings. We look forward to bringing authentic Nigerian flavour to your table.",
+      "imagePrompt": "A professional, welcoming storefront or office reception area with Nigerian design elements, warm lighting, product displays of spice bottles, and a friendly customer service representative, photorealistic, inviting atmosphere",
+      "layout": "default"
+    }
+  ],
+  "contact": {
+    "phone": "+234 703 486 2295",
+    "email": "info@lilykfoods.com",
+    "address": "Junior Navy Quarter Kubuwa Phase 4, Bwari Area Council, Abuja, Nigeria",
+    "whatsapp": "https://wa.me/2347034862295"
+  }
+}
